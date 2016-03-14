@@ -42,6 +42,15 @@ module TeamCity
         response = get("builds/#{build_id}/statistics")
         response['property']
       end
+      
+      # Get build parameters
+      #
+      # @param build_id [String]
+      # @return [Array<Hashie::Mash>]
+      def build_parameters(build_id)
+        response = get("builds/#{build_id}/resulting-properties")
+        response
+      end      
 
       # Tells you whether or not a build is pinned
       #
